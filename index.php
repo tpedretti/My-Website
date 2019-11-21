@@ -1,8 +1,8 @@
 <?php
 require_once 'classes/view.php';
-require_once 'header.html';
+require_once 'semantics/header/header.html';
 
 $view = new view();
 echo  $view->mainPage();
 
-require_once 'footer.html';
+require_once 'semantics/footer/footer.html';
