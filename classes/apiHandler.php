@@ -13,4 +13,9 @@
  */
 class apiHandler {
     //put your code here
+    function githubRepos()
+    {
+        $githubKey = "";
+        $githubURL = "https://api.github.com/graphql";
+    }
 }
