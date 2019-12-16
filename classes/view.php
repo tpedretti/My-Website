@@ -21,7 +21,7 @@ class view
                                         <div class=\"col-md-6\">
                                                 <div class=\"bio-content\">
                                                         <h1>Hey! I'm Taylor</h1>
-                                                        <h6>I am a fresh web designer and I create custom web designs. I'm skilled at writing well-designed, testable and efficient code using current best practices in Web development. I'm a fast learner, hard worker and team player who is proficient in making creative and innovative web pages.</h6>
+                                                        <h6>I'm a new grad fresh from CSUSB (California State University San Bernardino). </h6>
                                                         <p>P.S I have no special talent, I'm just passionately curious ;)</p>
                                                 </div>
                                         </div>
@@ -34,6 +34,7 @@ class view
     
     function gitHubPG()
     {
+        $gitAPI = new apiHandler();
         $content = "";
         
         $content .= 
@@ -48,11 +49,10 @@ class view
             <div class=\"container\">
 
               <div class=\"row\">";
-        //Creates the correct amount of cards based off how many repos comes back from API call.
-        
-        /*
-                <div class=\"col-md-4\">
+                     
+                /*<div class=\"col-md-4\">
                   <div class=\"card mb-4 shadow-sm\">
+                  <svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"50\"><title>Placeholder</title><text x=\"35%\" y=\"50%\" dy=\".3em\">Git Hub Repo Title</text></svg>
                     <div class=\"card-body\">
                       <p class=\"card-text\">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                       <div class=\"d-flex justify-content-between align-items-center\">
@@ -65,9 +65,31 @@ class view
                 </div>
               </div>
              </div>";*/
-                
-        $content.= "</div>";
+        //<div class=\"card-header\">Header</div>
         
+        $repos = $gitAPI->githubRepos();
+        for($i = 0; $i < count($repos); $i++)
+        {
+            //echo $i . '</br>';
+            //echo $repos[$i]->getURL() . '</br>';
+            if($repos[$i]->getIsForked() == false)
+            {
+                $content .= "
+                <div class=\"col-md-4\">
+                    <div class=\"card border-dark mb-3\" style=\"max-width: 20rem;\">
+                            <div class=\"card-body\">
+                            <h4 class=\"card-title\">" . $repos[$i]->getName() . "</h4>
+                            <p class=\"card-text\">" . $repos[$i]->getDescription() . "</p>
+                            <div class=\"btn-group\">
+                            <a type=\"button\" class=\"btn btn-sm btn-outline-secondary\" href=\"".$repos[$i]->getURL()."\">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+            }
+        }
+        
+        $content.= "</div>";        
         
         return $content;
     }
