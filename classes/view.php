@@ -21,8 +21,7 @@ class view
                                         <div class=\"col-md-6\">
                                                 <div class=\"bio-content\">
                                                         <h1>Hey! I'm Taylor</h1>
-                                                        <h6>I'm a new grad fresh from CSUSB (California State University San Bernardino). </h6>
-                                                        <p>P.S I have no special talent, I'm just passionately curious ;)</p>
+                                                        <h6>I'm new grad from California State University-San Bernardino, experienced Computer Science Tutor with a demonstrated history of working in the higher education industry. Skilled in Microsoft Word, PHP, C++, Databases, and Java.  </h6>
                                                 </div>
                                         </div>
                                 </div>	
